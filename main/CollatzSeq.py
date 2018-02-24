@@ -8,19 +8,30 @@ def collatz(number):
         print(3 * number + 1)
         return  3 * number + 1
 
-print('Enter Number: ')
-number = 3
-# number = int(input())
+def getInput():
+    print('Enter Number: ')
 
-while (number != 1):
-    number = collatz(number)
+    try:
+        number = int(input())
+        while number != 1:
+            number = collatz(number)
 
-print("\n@Last 1 being reached")
+        print("\n@Last 1 being reached")
+
+    except ValueError:
+        print('Error: Invalid argument.')
+        getInput()
+
+getInput()
 
 '''
 Output:
 Collatz Sequence Analyzer
 Enter Number: 
+non integer
+Error: Invalid argument.
+Enter Number: 
+3
 10
 5
 16
